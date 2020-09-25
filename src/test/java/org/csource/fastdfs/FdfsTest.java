@@ -19,7 +19,7 @@ public class FdfsTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FdfsTest.class);
 
-    private static final String CONF_NAME = "fdfstest.conf";
+    private static final String CONF_NAME = "fdfs_client.conf";
 
     private StorageClient storageClient;
 
@@ -41,7 +41,7 @@ public class FdfsTest {
         LOGGER.info("close connection");
         if(storageClient != null){
             try {
-               storageClient.close();
+                storageClient.close();
             }catch (Exception e){
                 e.printStackTrace();
             }catch (Throwable e){
@@ -73,9 +73,9 @@ public class FdfsTest {
     @Test
     public void upload() throws Exception{
         NameValuePair[] metaList = new NameValuePair[1];
-        String local_filename = "build.PNG";
+        String local_filename = "pom.xml";
         metaList[0] = new NameValuePair("fileName", local_filename);
-        File file = new File("C:/Users/chengdu/Desktop/build.PNG");
+        File file = new File("/Users/onlyone/yp/flow-tasks/pom.xml");
         InputStream inputStream = new FileInputStream(file);
         int length = inputStream.available();
         byte[] bytes = new byte[length];
